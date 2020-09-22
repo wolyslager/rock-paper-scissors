@@ -1,16 +1,31 @@
 h1{
 	text-align: center;
 }
+
+h2{
+	text-align: center;
+}
 .container{
 	display: flex;
 	flex-direction: row;
 	height: 100%;
 	width: 100%;
 }
-
 .user{
 	display: flex;
 	flex-direction: column;
+}
+.rock{
+	border: 1px solid black;
+	margin: 10px;
+}
+.paper{
+	border: 1px solid black;
+	margin: 10px;
+}
+.scissors{
+	border: 1px solid black;
+	margin: 10px;
 }
 
 .selections{
@@ -19,6 +34,7 @@ h1{
 	justify-content: space-around;
 	align-items: center;
 	width: 100%;
+	margin-top: 100px;
 }
 .selections-container{
 	width: 100%;
@@ -42,6 +58,10 @@ img{
 }
 
 img:active{
+	transform: scale(.5);
+}
+
+img:hover{
 	transform: scale(.9);
 }
 

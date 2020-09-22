@@ -4,6 +4,7 @@ const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
 const playButton = document.querySelector('.play-button');
+const textResult = document.querySelector('.text-result');
 let userValue;
 let computerValue;
 let battleResult; 
@@ -64,9 +65,9 @@ const compareSelections = () => {
 playButton.addEventListener('click', (e) => {
 	let randomNum = Math.floor((Math.random()*3) + 1);
 	assignComputerSelection(randomNum);
-	console.log(userValue, computerValue);
+	
 	userValue === computerValue ? battleResult = 'Draw' : battleResult = compareSelections();
-	console.log(battleResult);
+	textResult.innerHTML = battleResult;
 })
 
 
