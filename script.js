@@ -12,14 +12,20 @@ let battleResult;
 rock.addEventListener('click', (e) => {
 	userSelection.src='img/fist.png';
 	userValue = 'rock';
+	textResult.innerHTML = '';
+	computerSelection.src='img/waiting.png';
 })
 paper.addEventListener('click', (e) => {
 	userSelection.src='img/hand.png';
 	userValue = 'paper';
+	textResult.innerHTML = '';
+	computerSelection.src='img/waiting.png';
 })
 scissors.addEventListener('click', (e) => {
 	userSelection.src='img/scissors.png';
 	userValue = 'scissors';
+	textResult.innerHTML = '';
+	computerSelection.src='img/waiting.png';
 })
 
 const assignComputerSelection = (randomNum) => {
@@ -65,7 +71,7 @@ const compareSelections = () => {
 playButton.addEventListener('click', (e) => {
 	let randomNum = Math.floor((Math.random()*3) + 1);
 	assignComputerSelection(randomNum);
-	
+
 	userValue === computerValue ? battleResult = 'Draw' : battleResult = compareSelections();
 	textResult.innerHTML = battleResult;
 })
