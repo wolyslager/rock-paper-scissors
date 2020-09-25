@@ -1,34 +1,36 @@
-const userSelection = document.querySelector('.user-selection');
-const computerSelection = document.querySelector('.computer-selection');
-const rock = document.querySelector('.rock');
-const paper = document.querySelector('.paper');
-const scissors = document.querySelector('.scissors');
-const playButton = document.querySelector('.play-button');
-const textResult = document.querySelector('.text-result');
 let userValue;
 let computerValue;
 let battleResult; 
+const userSelection = document.querySelector('.user-selection');
+const computerSelection = document.querySelector('.computer-selection');
+const playButton = document.querySelector('.play-button');
+const textResult = document.querySelector('.text-result');
 
+const rock = document.querySelector('.rock');
 rock.addEventListener('click', (e) => {
 	userSelection.src='img/fist.png';
 	userValue = 'rock';
-	textResult.innerHTML = '';
-	computerSelection.src='img/waiting.png';
 })
+
+const paper = document.querySelector('.paper');
 paper.addEventListener('click', (e) => {
 	userSelection.src='img/hand.png';
 	userValue = 'paper';
-	textResult.innerHTML = '';
-	computerSelection.src='img/waiting.png';
 })
+
+const scissors = document.querySelector('.scissors');
 scissors.addEventListener('click', (e) => {
 	userSelection.src='img/scissors.png';
 	userValue = 'scissors';
-	textResult.innerHTML = '';
-	computerSelection.src='img/waiting.png';
 })
 
-const assignComputerSelection = (randomNum) => {
+const waiting = () => {
+	textResult.innerHTML = '';
+	computerSelection.src='img/waiting.png';
+}
+
+const assignComputerSelection = () => {
+	let randomNum = Math.floor((Math.random()*3) + 1);
 	switch(randomNum){
 		case 1:
 		  computerSelection.src = 'img/fist.png';
@@ -48,32 +50,23 @@ const assignComputerSelection = (randomNum) => {
 const compareSelections = () => {
 	switch(userValue){
 		case 'rock':
-		  if(computerValue == 'scissors'){
-			  return 'Win'
-		  } else {
-			  return 'Lose'
-		  }
+		  return computerValue == 'scissors' ? 'Win' : 'Lose';
 		case 'scissors':
-		  if(computerValue == 'paper'){
-			  return 'Win'
-		  } else {
-			  return 'Lose'
-		  }
+	      return computerValue == 'paper' ? 'Win':  'Lose';
 		case 'paper':
-		  if(computerValue == 'rock'){
-			  return 'Win'
-		  } else {
-			  return 'Lose'
-		  }
+		  return computerValue == 'rock' ? 'Win' : 'Lose';
 	 }
 }
 
 playButton.addEventListener('click', (e) => {
-	let randomNum = Math.floor((Math.random()*3) + 1);
-	assignComputerSelection(randomNum);
-
-	userValue === computerValue ? battleResult = 'Draw' : battleResult = compareSelections();
-	textResult.innerHTML = battleResult;
+	if(!userValue){
+		alert('please make a selection')
+	} else {
+		assignComputerSelection();
+		userValue === computerValue ? battleResult = 'Draw' : battleResult = compareSelections();
+		textResult.innerHTML = battleResult;
+	}
+	
 })
 
 

@@ -1,3 +1,7 @@
+body{
+	background-color: #A3BB8C;
+	font-family: 'Rubik', 'sans-serif';
+}
 h1{
 	text-align: center;
 }
@@ -16,16 +20,16 @@ h2{
 	flex-direction: column;
 }
 .rock{
-	border: 1px solid black;
 	margin: 10px;
+	border: 4px solid black;
 }
 .paper{
-	border: 1px solid black;
 	margin: 10px;
+	border: 4px solid black;
 }
 .scissors{
-	border: 1px solid black;
 	margin: 10px;
+	border: 4px solid black;
 }
 
 .selections{
@@ -48,6 +52,7 @@ h2{
 .computer{
 	display: flex;
 	flex-direction: column;
+
 }
 
 img{
@@ -55,6 +60,8 @@ img{
 	width: 200px;
 	padding: 0;
 	margin: 0;
+	border: 4px solid black;
+	background-color: #7C9761;
 }
 
 img:active{
@@ -63,8 +70,20 @@ img:active{
 
 img:hover{
 	transform: scale(.9);
+	cursor: pointer;
+	background-color: #2E4913;
 }
 
 button{
-	width: 70px;
+	height: 70px;
+	width: 100px;
+	border: 4px solid black;
+	background-color: #2E4913;
+	cursor:	pointer;
+}
+
+button:hover{
+	transform: scale(.9);
+	background-color: #2E4913;
+	cursor:	pointer;
 }
